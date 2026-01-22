@@ -1,6 +1,6 @@
 <odoo>
     <record id="action_report_hoja_taller" model="ir.actions.report">
-        <field name="name">Hoja de Taller</field>
+        <field name="name">Hoja de Taller(Sin precios)</field>
         <field name="model">sale.order</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">taller.report_hoja_taller</field>
@@ -60,4 +60,16 @@
             </t>
         </t>
     </template>
+
+<template id="report_saleorder_horario" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@name='so_total_summary']" position="after">
+            <div class="mt-5 text-center" style="border-top: 1px solid black; padding-top: 10px; font-size: 10px; color: #666;">
+                <strong>Aviso Importante:</strong>
+                <span>El horario de recepción de mercancía y atención telefónica es de Lunes a Viernes de 08:00 a 16:00.</span>
+            </div>
+        </xpath>
+    </template>
 </odoo>
+
+
+
